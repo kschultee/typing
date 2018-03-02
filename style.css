@@ -1,4 +1,4 @@
-#box {
+.box {
   font-family: 'Roboto Slab', serif;
   height: 300px;
   width: 500px;
@@ -8,4 +8,8 @@
   vertical-align: middle;
   margin-top: 50px;
   font-size: 50px;
+}
+
+.current {
+  color: red;
 }
