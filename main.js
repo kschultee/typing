@@ -24,14 +24,15 @@ function $text(text, position) {
   window.addEventListener('keydown', function (event) {
     if (event.key === text[position]) {
       position++
+      state.position++
       score++
-      feedback.textContent = 'Correct!' + ' ' + 'Score ' + score
-      console.log(+1)
+      feedback.textContent = 'Correct!'
+      $current.textContent = text[position]
+      $next.textContent = text.slice(position + 1)
     }
     else {
       score--
-      feedback.textContent = 'Wrong!' + ' ' + 'Score ' + score
-      console.log(-1)
+      feedback.textContent = 'Wrong!'
     }
   })
   return $text
