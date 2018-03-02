@@ -1,4 +1,4 @@
-#box {
+.box {
   font-family: 'Roboto Slab', serif;
   height: 300px;
   width: 500px;
@@ -8,4 +8,19 @@
   vertical-align: middle;
   margin-top: 50px;
   font-size: 50px;
+}
+
+#feedback {
+  font-family: 'Roboto Slab', serif;
+  height: 300px;
+  width: 500px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  font-size: 50px;
+}
+
+.current {
+  color: red;
 }
