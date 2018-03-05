@@ -3,7 +3,8 @@ var state = {
   text: 'Hello World!',
   position: 0
 }
-
+var score = 0
+var feedback = document.getElementById('feedback')
 function $text(text, position) {
   var $text = document.createElement('div')
   $text.classList.add('text')
@@ -19,11 +20,25 @@ function $text(text, position) {
   $next.textContent = text.slice(position + 1)
 
   $text.append($complete, $current, $next)
+
+  window.addEventListener('keydown', function (event) {
+    if (event.key === text[position]) {
+      position++
+      state.position++
+      score++
+      feedback.textContent = 'Correct!'
+      $current.textContent = text[position]
+      $next.textContent = text.slice(position + 1)
+    }
+    else {
+      score--
+      feedback.textContent = 'Wrong!'
+    }
+  })
   return $text
 }
 
 function showText(text, position) {
   position.appendChild(text)
 }
-
 showText($text(state.text, state.position), document.querySelector('.box'))
