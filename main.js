@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 var state = {
-  text: 'Hello World!',
+  text: 'Hello_World',
   position: 0
 }
 var score = 0
@@ -19,6 +19,7 @@ function $text(text, position) {
   var $next = document.createElement('span')
   $next.textContent = text.slice(position + 1)
 
+  var $score = document.getElementById('score')
   $text.append($complete, $current, $next)
 
   window.addEventListener('keydown', function (event) {
@@ -31,8 +32,16 @@ function $text(text, position) {
       $next.textContent = text.slice(position + 1)
     }
     else {
-      score--
-      feedback.textContent = 'Wrong!'
+      if (event.key === 'Shift') {
+      }
+      else {
+        score--
+        feedback.textContent = 'Wrong!'
+      }
+      if (text[position] === undefined) {
+        $score.textContent = 'Your score is ' + score
+        console.log('OVER')
+      }
     }
   })
   return $text
